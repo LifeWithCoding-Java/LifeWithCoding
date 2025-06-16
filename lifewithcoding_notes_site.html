@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeWithCoding</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1e1e2f;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    nav a:hover {
+      background-color: #5757a6;
+    }
+    main {
+      padding: 20px;
+    }
+    .upload-section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #1e1e2f;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    input[type="file"] {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LifeWithCoding</h1>
+    <p>Every Great Developer Was Once a Beginner</p>
+  </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Upload Notes</a>
+    <a href="#">View Notes</a>
+  </nav>
+  <main>
+    <div class="upload-section">
+      <h2>Upload Your Notes</h2>
+      <form id="uploadForm">
+        <input type="file" id="fileInput" accept=".txt,.pdf" multiple />
+        <br /><br />
+        <button type="submit">Upload</button>
+      </form>
+      <div id="message"></div>
+    </div>
+  </main>
+  <footer>
+    Running BY Raushan
+  </footer>
+  <script>
+    const form = document.getElementById('uploadForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const files = document.getElementById('fileInput').files;
+      if (files.length === 0) {
+        message.textContent = 'Please select at least one file to upload.';
+        return;
+      }
+      message.innerHTML = `<strong>${files.length}</strong> file(s) ready for upload. (Functionality to be added later)`;
+      // For real use, integrate with backend or a storage service.
+    });
+  </script>
+</body>
+</html>
